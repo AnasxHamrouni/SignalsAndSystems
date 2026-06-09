@@ -1,0 +1,39 @@
+Vuvuzela denoising recording script
+
+1. Load audio
+I start by loading the noisy speech signal and the vuvuzela reference 
+signal. If the reference has a different sampling rate, I resample 
+it so both signals are processed at the same rate.
+
+2. Plot input signals
+Next, I plot both signals in the time domain. This shows that the 
+interference is a repeating tonal noise.
+
+3. Estimate harmonic structure
+I then estimate the vuvuzela fundamental and harmonics from the 
+reference PSD. The harmonic peaks show where the buzzing energy is 
+concentrated, so these frequencies become the main cancellation 
+targets.
+
+4. Compare spectra
+I compare the noisy and reference spectra to decide the passband and 
+stopband regions. The speech information is mainly in the mid band, 
+while the buzz is strongest at the harmonic frequencies.
+
+5. STFT suppression
+I use an STFT-based adaptive filter stage to suppress the interference 
+in the frequency domain. This stage combines Wiener-like suppression, 
+spectral subtraction, and harmonic masking.
+
+to satisfy delay limit I set 1024-sample STFT frame and a
+ 256-sample hop at 8 kHz. That gives a 128 ms frame and about 64 ms 
+ effective frame-center delay, which is below the 0.2 second limit.
+
+6. Notch cascade and cleanup
+After that, I apply a cascade of narrow notch filters at the harmonic 
+frequencies and nearby drift values. I also apply light bandpass and 
+high-pass to keep the speech clear.
+
+
+
+

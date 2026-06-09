@@ -1,0 +1,15 @@
+fs=22050
+f0_estimated_hz=231.481934
+harmonics_hz=[231.48193359375 462.9638671875 694.44580078125 925.927734375 1157.40966796875 1388.8916015625 1620.37353515625 1851.85546875]
+alpha=1.350000
+oversub=1.250000
+gain_floor=0.030000
+harmonic_depth=0.950000
+harmonic_bw_hz=56.000000
+tone_gate_strength=1.250000
+Q=22.000000
+drift_hz=12.000000
+post_strength=3.200000
+speech_band_change_db=-5.498451
+low_band_change_db=1.658460
+harmonic_band_change_db=-21.518591
